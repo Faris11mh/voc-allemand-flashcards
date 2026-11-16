@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vocabulaire allemand</title>
+<style>
+:root{
+  --bg1:#eef2ff;--bg2:#f8fafc;--ink:#1e293b;--muted:#64748b;--card:#fff;--line:#e2e8f0;
+  --primary:#4f46e5;--primary-d:#4338ca;--green:#16a34a;--green-d:#15803d;--red:#dc2626;--red-d:#b91c1c;
+  --shadow:0 10px 30px rgba(30,41,59,.10),0 2px 6px rgba(30,41,59,.06);
+  --r:22px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);
+  background:linear-gradient(160deg,var(--bg1),var(--bg2));min-height:100vh;-webkit-font-smoothing:antialiased}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #a5b4fc;outline-offset:2px}
+.wrap{max-width:760px;margin:0 auto;padding:20px 16px 40px}
+.view{display:none}.view.active{display:block;animation:fade .3s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+h1{font-size:clamp(1.5rem,4vw,2rem);margin:8px 0 4px}
+.sub{color:var(--muted);margin:0 0 20px}
+.panel{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:20px;margin-bottom:16px}
+.panel h2{margin:0 0 12px;font-size:1.05rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:14px;font-weight:600;
+  transition:transform .15s,box-shadow .15s,background .15s}
+.btn:hover{transform:translateY(-2px)}.btn:active{transform:scale(.96)}
+.btn-primary{background:var(--primary);color:#fff;box-shadow:0 6px 16px rgba(79,70,229,.3)}
+.btn-primary:hover{background:var(--primary-d)}
+.btn-ghost{background:#fff;border:1px solid var(--line);color:var(--ink)}
+.btn-ghost:hover{background:#f1f5f9}
+.btn[disabled]{opacity:.45;cursor:not-allowed;transform:none}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.spread{justify-content:space-between}
+/* switch */
+.switch{display:flex;gap:14px;align-items:center;justify-content:space-between}
+.switch p{margin:2px 0 0;color:var(--muted);font-size:.9rem}
+.tog{position:relative;width:52px;height:30px;border-radius:99px;background:#cbd5e1;transition:background .2s;flex:none}
+.tog::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:transform .2s}
+.tog[aria-checked=true]{background:var(--primary)}.tog[aria-checked=true]::after{transform:translateX(22px)}
+/* deck list */
+.cardlist{list-style:none;margin:0;padding:0;display:grid;gap:8px;max-height:320px;overflow:auto}
+.cardlist li{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#fafbff}
+.cardlist .q{font-weight:600}.cardlist .a{color:var(--muted);font-size:.9rem}
+.cardlist .x{color:var(--red);padding:6px 10px;border-radius:8px}.cardlist .x:hover{background:#fee2e2}
+form.add{display:grid;gap:8px;margin-top:14px}
+form.add input,form.add textarea{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:12px;width:100%;background:#fff}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(max-width:520px){.two{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.chip{padding:8px 14px;border-radius:99px;border:1px solid var(--line);background:#fff;font-weight:600;font-size:.9rem;transition:.15s}
+.chip[aria-pressed=true]{background:var(--primary);border-color:var(--primary);color:#fff}
+.chip small{opacity:.75;font-weight:500}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:12px;overflow:hidden;flex:none}
+.seg button{padding:8px 12px;font-weight:600;font-size:.88rem}
+.seg button[aria-pressed=true]{background:var(--primary);color:#fff}
+.cardlist .t{font-size:.75rem;color:var(--primary-d);font-weight:700;white-space:nowrap}
+/* session header */
+.top{margin-bottom:14px}
+.top .meta{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;font-weight:600}
+.top .meta small{color:var(--muted);font-weight:500}
+.bar{height:10px;border-radius:99px;background:#dbe2f0;overflow:hidden;margin-top:8px}
+.bar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,#6366f1,#22c55e);border-radius:99px;transition:width .4s ease}
+.pill{display:inline-block;background:#e0e7ff;color:var(--primary-d);padding:2px 10px;border-radius:99px;font-size:.8rem;font-weight:700;margin-right:6px}
+/* card */
+.stage{position:relative}
+.scene{perspective:1400px;height:clamp(260px,44vh,360px);margin:10px 0 18px}
+.slot{height:100%;transition:transform .22s ease,opacity .22s ease}
+.slot.leave-yes{transform:translateX(70px) rotate(4deg);opacity:0}
+.slot.leave-no{transform:translateX(-70px) rotate(-4deg);opacity:0}
+.slot.enter{animation:enter .28s ease}
+.slot.shake{animation:shake .45s ease}
+@keyframes enter{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes shake{0%,100%{transform:none}20%{transform:translateX(-10px) rotate(-1.5deg)}50%{transform:translateX(10px) rotate(1.5deg)}80%{transform:translateX(-5px)}}
+.card{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.4,.2,.2,1);cursor:pointer;border-radius:var(--r)}
+.card.flipped{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:var(--card);border-radius:var(--r);
+  box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:26px;overflow:auto}
+.face.back{transform:rotateY(180deg);background:linear-gradient(180deg,#fff,#f5f7ff)}
+.tag{position:absolute;top:14px;left:18px;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.big{font-size:clamp(1.3rem,4.2vw,2rem);font-weight:700;line-height:1.25;overflow-wrap:anywhere}
+.expl{margin-top:12px;color:#475569;font-size:.98rem}
+.ex{margin-top:8px;color:var(--primary-d);font-style:italic;font-size:.95rem}
+.hint{position:absolute;bottom:14px;left:0;right:0;font-size:.82rem;color:var(--muted)}
+.card.flash-yes .face{box-shadow:0 0 0 4px rgba(22,163,74,.5),var(--shadow)}
+.card.flash-no .face{box-shadow:0 0 0 4px rgba(220,38,38,.5),var(--shadow)}
+/* answers */
+.answers{display:grid;grid-template-columns:1fr 1fr;gap:12px;transition:opacity .25s,transform .25s}
+.answers.hidden{opacity:0;transform:translateY(8px);pointer-events:none}
+.ans{padding:16px;border-radius:16px;font-weight:700;color:#fff;font-size:1.02rem;transition:transform .15s,box-shadow .15s,filter .15s}
+.ans:hover{transform:translateY(-3px)}.ans:active{transform:scale(.94)}
+.ans.no{background:var(--red);box-shadow:0 8px 18px rgba(220,38,38,.28)}.ans.no:hover{background:var(--red-d)}
+.ans.yes{background:var(--green);box-shadow:0 8px 18px rgba(22,163,74,.28)}.ans.yes:hover{background:var(--green-d)}
+.ans.pop{animation:pop .3s ease}
+@keyframes pop{50%{transform:scale(1.07)}}
+.tools{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.tool{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:12px;background:#fff;border:1px solid var(--line);font-weight:600;font-size:.9rem;transition:transform .15s,background .15s}
+.tool:hover{background:#eef2ff;transform:translateY(-2px)}.tool:active{transform:scale(.95)}
+.tool[disabled]{opacity:.4;cursor:not-allowed;transform:none}
+.tool svg{width:18px;height:18px}
+.kbd{text-align:center;color:var(--muted);font-size:.8rem;margin-top:12px}
+kbd{background:#fff;border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;padding:1px 6px;font-size:.78rem}
+/* summary */
+.center{text-align:center}
+.emoji{font-size:3rem}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:20px 0}
+.stat{background:#f8faff;border:1px solid var(--line);border-radius:16px;padding:14px}
+.stat b{display:block;font-size:1.8rem}.stat span{color:var(--muted);font-size:.88rem}
+.stat.g b{color:var(--green)}.stat.r b{color:var(--red)}.stat.p b{color:var(--primary)}
+/* overlays */
+.overlay{position:fixed;inset:0;background:rgba(15,23,42,.45);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:16px;z-index:50}
+.overlay.open{display:flex;animation:fade .2s ease}
+.dialog{background:#fff;border-radius:20px;padding:24px;max-width:400px;width:100%;box-shadow:var(--shadow);text-align:center}
+.dialog h3{margin:0 0 8px}.dialog p{margin:0 0 18px;color:var(--muted)}
+.pause{position:absolute;inset:0;border-radius:var(--r);background:rgba(238,242,255,.96);display:none;flex-direction:column;align-items:center;justify-content:center;gap:12px;z-index:5;font-weight:700;font-size:1.2rem}
+.pause.open{display:flex}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:#1e293b;color:#fff;padding:10px 18px;border-radius:99px;opacity:0;transition:.3s;z-index:60;pointer-events:none;font-size:.92rem;max-width:90vw;text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ACCUEIL -->
+<section id="viewHome" class="view active">
+  <h1>🇩🇪 Vocabulaire allemand</h1>
+  <p class="sub">Schulwesen (112–114) et Zeit (171–173) · seulement les mots non barrés.</p>
+
+  <div class="panel">
+    <h2>Réglages du mélange</h2>
+    <div class="switch">
+      <div>
+        <strong>Mélange automatique</strong>
+        <p id="shuffleDesc"></p>
+      </div>
+      <button id="autoToggle" class="tog" role="switch" aria-checked="true" aria-label="Mélange automatique"></button>
+    </div>
+    <div class="switch" style="margin-top:16px">
+      <div><strong>Sens des cartes</strong><p>Ce qui s'affiche au recto.</p></div>
+      <div class="seg"><button id="dirDe" aria-pressed="true">DE → FR</button><button id="dirFr" aria-pressed="false">FR → DE</button></div>
+    </div>
+    <p class="sub" style="margin:12px 0 0;font-size:.85rem">Le bouton de mélange manuel reste toujours disponible pendant la session.</p>
+  </div>
+
+  <div class="panel">
+    <div class="row spread" style="margin-bottom:12px">
+      <h2 style="margin:0">Cartes sélectionnées : <span id="count">0</span></h2>
+      <div class="row">
+        <button class="btn btn-ghost" id="selAll">Tout</button>
+        <button class="btn btn-ghost" id="resetDeck" title="Remettre la liste de vocabulaire d'origine">↺ Réinitialiser</button>
+      </div>
+    </div>
+    <div class="chips" id="chips"></div>
+    <ul id="cardList" class="cardlist"></ul>
+    <form class="add" id="addForm">
+      <div class="two">
+        <input id="fQ" placeholder="Mot allemand" required maxlength="200">
+        <input id="fA" placeholder="Traduction française" required maxlength="300">
+      </div>
+      <div class="two">
+        <input id="fE" placeholder="Remarque (optionnel)" maxlength="400">
+        <input id="fX" placeholder="Exemple (optionnel)" maxlength="300">
+      </div>
+      <button class="btn btn-ghost" type="submit">＋ Ajouter la carte</button>
+    </form>
+  </div>
+
+  <div class="center"><button id="startBtn" class="btn btn-primary" style="padding:16px 34px;font-size:1.1rem">▶ Commencer la session</button></div>
+</section>
+
+<!-- SESSION -->
+<section id="viewSession" class="view">
+  <div class="top">
+    <div class="meta">
+      <span><span class="pill" id="roundPill">Tour 1</span><span id="cardNum">Carte 1 / 10</span></span>
+      <small id="remaining">9 restantes · 0 maîtrisées</small>
+    </div>
+    <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="bar"><i id="barFill"></i></div>
+  </div>
+
+  <div class="stage">
+    <div class="scene">
+      <div class="slot" id="slot">
+        <div class="card" id="card" tabindex="0" role="button" aria-label="Carte, cliquer pour retourner">
+          <div class="face front">
+            <span class="tag">Recto</span>
+            <div class="big" id="qText"></div>
+            <div class="hint">Cliquez pour retourner la carte</div>
+          </div>
+          <div class="face back">
+            <span class="tag">Verso</span>
+            <div class="big" id="aText"></div>
+            <div class="expl" id="eText"></div>
+            <div class="ex" id="xText"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pause" id="pauseBox">⏸ Session en pause<button class="btn btn-primary" id="resumeBtn">Reprendre</button></div>
+  </div>
+
+  <div class="answers hidden" id="answers">
+    <button class="ans no" id="btnNo" disabled>✗ Je ne savais pas</button>
+    <button class="ans yes" id="btnYes" disabled>✓ Je savais</button>
+  </div>
+
+  <div class="tools">
+    <button class="tool" id="btnPrev" title="Annuler la dernière réponse (←)">◀ Précédent</button>
+    <button class="tool" id="btnShuffle" title="Mélanger les cartes restantes (S)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M4 20 21 3"/><path d="M21 16v5h-5"/><path d="m15 15 6 6"/><path d="M4 4l5 5"/></svg>
+      Mélanger
+    </button>
+    <button class="tool" id="btnNext" title="Passer cette carte à la fin du tour (→)">Suivant ▶</button>
+    <button class="tool" id="btnPause" title="Pause (P)">⏸ Pause</button>
+    <button class="tool" id="btnQuit" title="Quitter">✕ Quitter</button>
+  </div>
+  <p class="kbd"><kbd>Espace</kbd> retourner · <kbd>1</kbd> raté · <kbd>2</kbd> su · <kbd>←</kbd> précédent · <kbd>→</kbd> suivant · <kbd>S</kbd> mélanger · <kbd>P</kbd> pause</p>
+</section>
+
+<!-- FIN DE TOUR -->
+<section id="viewRound" class="view">
+  <div class="panel center">
+    <div class="emoji">🎉</div>
+    <h1>Bravo ! Tu as terminé ce tour.</h1>
+    <div class="stats">
+      <div class="stat g"><b id="rKnown">0</b><span>cartes maîtrisées</span></div>
+      <div class="stat r"><b id="rMissed">0</b><span>cartes à revoir</span></div>
+      <div class="stat p"><b id="rPct">0 %</b><span>de réussite</span></div>
+    </div>
+    <button class="btn btn-primary" id="nextRoundBtn" style="padding:14px 28px"></button>
+  </div>
+</section>
+
+<!-- FIN -->
+<section id="viewFinal" class="view">
+  <div class="panel center">
+    <div class="emoji">🏆</div>
+    <h1>Félicitations, tout est maîtrisé !</h1>
+    <p class="sub">Toutes les cartes sont apprises. Excellent travail.</p>
+    <div class="stats">
+      <div class="stat"><b id="fTotal">0</b><span>cartes au total</span></div>
+      <div class="stat g"><b id="fFirst">0</b><span>maîtrisées dès le 1er tour</span></div>
+      <div class="stat p"><b id="fLearned">0</b><span>apprises pendant les révisions</span></div>
+      <div class="stat"><b id="fPct">0 %</b><span>réussite initiale</span></div>
+      <div class="stat"><b id="fRounds">0</b><span>tours effectués</span></div>
+    </div>
+    <div class="row" style="justify-content:center">
+      <button class="btn btn-primary" id="restartBtn">↻ Recommencer la session</button>
+      <button class="btn btn-ghost" id="backBtn">Retour aux cartes</button>
+    </div>
+  </div>
+</section>
+</div>
+
+<div class="overlay" id="modal"><div class="dialog">
+  <h3 id="mTitle"></h3><p id="mText"></p>
+  <div class="row" style="justify-content:center"><button class="btn btn-ghost" id="mCancel">Annuler</button><button class="btn btn-primary" id="mOk">OK</button></div>
+</div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+/*ENGINE_START*/
+const Engine = (() => {
+  const defaultRng = () => {
+    if (typeof crypto !== 'undefined' && crypto.getRandomValues) {
+      const a = new Uint32Array(1); crypto.getRandomValues(a); return a[0] / 4294967296;
+    }
+    return Math.random();
+  };
+
+  // Fisher-Yates : travaille sur une COPIE, ne modifie jamais l'entrée.
+  function fisherYates(arr, rng = defaultRng) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(rng() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  const hasFixedPoint = (a, b) => a.some((v, i) => v === b[i]);
+
+  // Mélange ids ; si >= 2 cartes, aucune carte ne garde sa position de `reference`
+  // (donc ordre forcément différent). Repli garanti : rotation de la référence.
+  function shuffleAvoiding(ids, reference, rng = defaultRng) {
+    let out = fisherYates(ids, rng);
+    if (ids.length < 2) return out;
+    let ref = (reference || ids).filter(id => ids.includes(id));
+    if (ref.length !== ids.length) ref = ids.slice();
+    for (let t = 0; t < 80; t++) {
+      if (!hasFixedPoint(out, ref)) return out;
+      out = fisherYates(ids, rng);
+    }
+    const k = 1 + Math.floor(rng() * (ref.length - 1));
+    return ref.slice(k).concat(ref.slice(0, k));
+  }
+
+  function createSession(cardIds, autoShuffle = true, rng = defaultRng) {
+    const originalIds = cardIds.slice();
+    const queue = autoShuffle ? shuffleAvoiding(originalIds, originalIds, rng) : originalIds.slice();
+    return {
+      originalIds,            // ordre de création (jamais modifié)
+      total: originalIds.length,
+      round: 1,
+      queue,                  // cartes du tour restant à répondre (la 1re est affichée)
+      roundTotal: queue.length,
+      presented: [],          // cartes déjà répondues dans ce tour, dans l'ordre
+      failed: [],             // ratées pendant ce tour -> prochain tour
+      mastered: new Set(),    // maîtrisées définitivement
+      roundKnown: 0,
+      firstRoundKnown: 0,
+      history: [],
+      shuffles: 0,
+    };
+  }
+
+  function answer(s, known) {
+    if (!s.queue.length) return null;
+    const id = s.queue.shift();
+    s.presented.push(id);
+    if (known) {
+      s.mastered.add(id); s.roundKnown++;
+      if (s.round === 1) s.firstRoundKnown++;
+    } else {
+      s.failed.push(id);
+    }
+    s.history.push({ id, known });
+    return id;
+  }
+
+  function undo(s) {
+    const h = s.history.pop();
+    if (!h) return false;
+    s.presented.pop();
+    s.queue.unshift(h.id);
+    if (h.known) {
+      s.mastered.delete(h.id); s.roundKnown--;
+      if (s.round === 1) s.firstRoundKnown--;
+    } else {
+      const i = s.failed.lastIndexOf(h.id);
+      if (i >= 0) s.failed.splice(i, 1);
+    }
+    return true;
+  }
+
+  function skip(s) {
+    if (s.queue.length < 2) return false;
+    s.queue.push(s.queue.shift());
+    return true;
+  }
+
+  // Mélange manuel : cartes restantes du tour uniquement, résultats intacts.
+  function manualShuffle(s, rng = defaultRng) {
+    if (s.queue.length < 2) return false;
+    s.queue = shuffleAvoiding(s.queue, s.queue, rng);
+    s.shuffles++;
+    return true;
+  }
+
+  const isRoundOver = s => s.queue.length === 0;
+  const isDone = s => s.queue.length === 0 && s.failed.length === 0;
+
+  function nextRound(s, autoShuffle = true, rng = defaultRng) {
+    if (!isRoundOver(s) || s.failed.length === 0) return false;
+    const ids = s.failed.slice();
+    let queue;
+    if (autoShuffle) {
+      // ordre différent du tour précédent (positions relatives)
+      queue = shuffleAvoiding(ids, s.presented, rng);
+    } else {
+      queue = s.originalIds.filter(id => ids.includes(id)); // ordre initial conservé
+    }
+    s.round++;
+    s.queue = queue;
+    s.roundTotal = queue.length;
+    s.presented = [];
+    s.failed = [];
+    s.roundKnown = 0;
+    s.history = [];
+    return true;
+  }
+
+  // Invariants : pas de doublon, maîtrisées jamais en file, tout est comptabilisé.
+  function check(s) {
+    const all = [...s.mastered, ...s.queue, ...s.failed];
+    const set = new Set(all);
+    if (set.size !== all.length) throw new Error('Doublon détecté');
+    if (set.size !== s.total) throw new Error('Carte perdue ou en trop');
+    for (const id of s.queue) if (s.mastered.has(id)) throw new Error('Carte maîtrisée revenue');
+    for (const id of s.originalIds) if (!set.has(id)) throw new Error('Carte manquante');
+    return true;
+  }
+
+  function stats(s) {
+    const t = s.total;
+    return {
+      total: t,
+      firstRoundKnown: s.firstRoundKnown,
+      learned: s.mastered.size - s.firstRoundKnown,
+      firstPct: t ? Math.round(100 * s.firstRoundKnown / t) : 0,
+      rounds: s.round,
+    };
+  }
+
+  return { fisherYates, shuffleAvoiding, createSession, answer, undo, skip, manualShuffle,
+           isRoundOver, isDone, nextRound, check, stats };
+})();
+/*ENGINE_END*/
+
+/* ------------------------------ Données ------------------------------ */
+// [chapitre, allemand, français, remarque, exemple] — seulement les mots non barrés
+const VOCAB = [["112 Schule", "die Schule, -n", "l'école", "", "zur Schule gehen"], ["112 Schule", "der Kurs, -e", "le cours", "", "der Deutschkurs"], ["112 Schule", "das Gymnasium, Gymnasien", "le lycée", "", "aufs Gymnasium gehen"], ["112 Schule", "die Klasse, -n", "la classe", "", "in die 10. Klasse gehen"], ["112 Schule", "die Tafel, -n", "le tableau", "", "etwas an die Tafel schreiben"], ["112 Schule", "der Unterricht", "l'enseignement", "", "der Deutschunterricht"], ["112 Schule", "erziehen", "éduquer", "erzieht – erzog – hat erzogen", "gut erzogen sein"], ["112 Schule", "die Erziehung", "l'éducation", "", "eine gute Erziehung"], ["112 Schule", "die Bildung", "la culture", "", "die Allgemeinbildung"], ["112 Schule", "die Weiterbildung", "la formation continue", "", "Die Weiterbildung ist für jeden wichtig."], ["112 Schule", "das Fach, ¨-er", "la matière", "", "das Hauptfach / das Nebenfach"], ["112 Schule", "Deutsch", "allemand (matière)", "", ""], ["112 Schule", "Geschichte", "histoire (matière)", "", ""], ["112 Schule", "Fremdsprachen", "langues étrangères", "", ""], ["112 Schule", "Mathematik", "mathématiques", "", ""], ["112 Schule", "Informatik", "informatique", "", ""], ["112 Schule", "Biologie", "sciences naturelles", "", ""], ["112 Schule", "Chemie", "chimie", "", ""], ["112 Schule", "der Lehrer, -", "le professeur", "féminin : die Lehrerin", "der Deutschlehrer"], ["112 Schule", "unterrichten", "enseigner", "", "Deutsch unterrichten"], ["112 Schule", "die Stunde, -n (à l'école)", "le cours", "aussi : l'heure", "fünf Stunden Unterricht haben"], ["112 Schule", "der Schüler, -", "l'élève", "féminin : die Schülerin", "ein guter Schüler / der Mitschüler"], ["112 Schule", "sich melden", "lever le doigt", "", "Der Schüler meldet sich."], ["112 Schule", "lernen", "apprendre", "", "eine Fremdsprache lernen"], ["112 Schule", "das Heft, -e", "le cahier", "", "etwas ins Heft schreiben"], ["112 Schule", "die Aufgabe, -n", "le devoir", "", "die Hausaufgaben machen"], ["112 Schule", "die Übung, -en", "l'exercice", "", "eine Übung machen"], ["112 Schule", "das Schuljahr, -e", "l'année scolaire", "", "der Anfang des Schuljahres"], ["112 Schule", "die Ferien (Pl.)", "les vacances", "", "die großen Ferien / die Osterferien"], ["113 Prüfung", "die Klassenarbeit, -en", "le contrôle", "", "eine Klassenarbeit schreiben"], ["113 Prüfung", "der Fehler, -", "la faute", "", "viele Fehler machen"], ["113 Prüfung", "falsch", "faux", "", "falsch rechnen"], ["113 Prüfung", "korrigieren", "corriger", "", "den Fehler korrigieren"], ["113 Prüfung", "richtig", "juste, correct", "", "die richtige Antwort"], ["113 Prüfung", "die Note, -n", "la note", "", "eine gute Note bekommen"], ["113 Prüfung", "die Prüfung, -en", "l'examen", "", "die mündliche / die schriftliche Prüfung"], ["113 Prüfung", "das Abitur", "le baccalauréat", "", "das Abitur machen / bestehen"], ["113 Prüfung", "die Matura (österr.)", "le bac", "", "die Matura machen"], ["113 Prüfung", "prüfen", "faire passer un examen", "", "den Schüler prüfen"], ["113 Prüfung", "wissen", "savoir", "weiß – wusste – hat gewusst", "die Vokabeln wissen"], ["113 Prüfung", "bestehen", "réussir (un examen), être reçu", "besteht – bestand – hat bestanden", "die Prüfung mit „Gut“ bestehen"], ["113 Prüfung", "durchfallen", "échouer", "fällt durch – fiel durch – ist durchgefallen", "bei der Prüfung durchfallen"], ["113 Prüfung", "das Zeugnis, -se", "le diplôme, le bulletin scolaire", "", "ein gutes Zeugnis bekommen"], ["113 Prüfung", "das Zertifikat, -e", "le certificat", "", "das Zertifikat in Deutsch"], ["114 Universität", "die Universität, -en", "l'université", "", "an der Universität studieren"], ["114 Universität", "die Hochschule, -n", "la haute école", "", "die technische Hochschule"], ["114 Universität", "der Professor, -en", "le professeur (université)", "féminin : die Professorin", "Professor für Medizin"], ["114 Universität", "der Student, -en", "l'étudiant", "féminin : die Studentin", "der Medizinstudent"], ["114 Universität", "studieren", "étudier", "", "Medizin studieren"], ["114 Universität", "das Studium, Studien", "les études", "", "das Medizinstudium"], ["114 Universität", "das Semester, -", "le semestre", "", "im ersten Semester sein"], ["114 Universität", "die Wissenschaft, -en", "la science", "", "die Naturwissenschaft"], ["114 Universität", "die Forschung, -en", "la recherche", "", "in der Forschung arbeiten"], ["114 Universität", "erfinden", "inventer", "erfindet – erfand – hat erfunden", "einen neuen Motor erfinden"], ["114 Universität", "der Fortschritt, -e", "le progrès", "", "der technische Fortschritt"], ["171 Zeit", "die Zeit, -en", "le temps (durée)", "", "Zeit haben / der Zeitpunkt"], ["171 Zeit", "ewig", "éternel", "", "das ewige Leben"], ["171 Zeit", "immer", "toujours", "", "für immer / immer noch"], ["171 Zeit", "die Dauer", "la durée", "", "die Dauer der Reise"], ["171 Zeit", "dauern", "durer", "", "Es dauert lange."], ["171 Zeit", "lange", "long, longtemps", "", "lange warten"], ["171 Zeit", "die Stunde, -n (durée)", "l'heure", "aussi : le cours", "eine halbe Stunde"], ["171 Zeit", "die Viertelstunde, -n", "le quart d'heure", "", "eine Viertelstunde warten"], ["171 Zeit", "die Minute, -n", "la minute", "", "in 10 Minuten"], ["171 Zeit", "die Sekunde, -n", "la seconde", "", "einige Sekunden"], ["171 Zeit", "kurz", "court, peu", "", "kurz nach dem Unfall"], ["171 Zeit", "der Moment, -e", "le moment", "", "„Einen Moment, bitte!“"], ["171 Zeit", "der Augenblick, -e", "l'instant", "", "im nächsten Augenblick"], ["171 Zeit", "momentan", "momentané", "", "„Momentan habe ich keine Zeit.“"], ["171 Zeit", "Uhr (Es ist 3 Uhr)", "heure (qu'il est)", "", "Es ist jetzt 18 Uhr."], ["171 Zeit", "um (+ heure)", "à", "", "um 7 Uhr morgens"], ["171 Zeit", "die Uhr, -en", "la montre", "", "auf die Uhr sehen / die Armbanduhr"], ["171 Zeit", "spät", "tard", "", "„Wie spät ist es?“"], ["171 Zeit", "der Termin, -e", "la date, le rendez-vous", "", "einen Termin vereinbaren"], ["172 Tag, Woche", "der Tag, -e", "le jour, la journée", "", "„Guten Tag!“"], ["172 Tag, Woche", "täglich", "chaque jour", "", "Der Zug verkehrt täglich."], ["172 Tag, Woche", "die Tageszeit, -en", "l'heure de la journée", "", "zu jeder Tageszeit"], ["172 Tag, Woche", "früh", "tôt", "", "früh aufstehen"], ["172 Tag, Woche", "der Morgen, -", "le matin", "", "„Guten Morgen!“ / am Morgen"], ["172 Tag, Woche", "morgens", "le matin (compl. de temps)", "", "morgens zur Arbeit fahren"], ["172 Tag, Woche", "der Vormittag, -e", "la matinée", "", "am Vormittag arbeiten"], ["172 Tag, Woche", "vormittags", "dans la matinée", "", "vormittags einkaufen gehen"], ["172 Tag, Woche", "der Mittag, -e", "le midi", "", "die Mittagspause"], ["172 Tag, Woche", "mittags", "à midi", "", "Mittags haben wir eine Stunde Pause."], ["172 Tag, Woche", "der Nachmittag, -e", "l'après-midi", "", "am Nachmittag"], ["172 Tag, Woche", "nachmittags", "dans l'après-midi", "", "Nachmittags trinken wir Kaffee."], ["172 Tag, Woche", "der Abend, -e", "le soir, la soirée", "", "„Guten Abend!“"], ["172 Tag, Woche", "abends", "le soir (compl. de temps)", "", "von morgens bis abends"], ["172 Tag, Woche", "spät / später / am spätesten", "tard, plus tard, au plus tard", "", "von früh bis spät"], ["172 Tag, Woche", "die Nacht, ¨-e", "la nuit", "", "der Nachtdienst im Krankenhaus"], ["172 Tag, Woche", "die Mitternacht", "minuit", "", "erst um Mitternacht schlafen gehen"], ["172 Tag, Woche", "der Alltag", "le quotidien", "", "der graue Alltag"], ["172 Tag, Woche", "wochentags", "en semaine", "", "Der Zug verkehrt nur wochentags."], ["172 Tag, Woche", "der Wochentag, -e", "le jour de la semaine", "", "die sieben Wochentage"], ["172 Tag, Woche", "der Montag", "le lundi", "", ""], ["172 Tag, Woche", "der Dienstag", "le mardi", "", ""], ["172 Tag, Woche", "der Mittwoch", "le mercredi", "", ""], ["172 Tag, Woche", "der Donnerstag", "le jeudi", "", ""], ["172 Tag, Woche", "der Freitag", "le vendredi", "", ""], ["172 Tag, Woche", "der Samstag", "le samedi", "", ""], ["172 Tag, Woche", "der Sonntag", "le dimanche", "", ""], ["172 Tag, Woche", "das Wochenende, -n", "le weekend", "", "Am Wochenende machen wir gerne Ausflüge."], ["172 Tag, Woche", "die Woche, -n", "la semaine", "", "der Wochentag / das Wochenende"], ["172 Tag, Woche", "wöchentlich", "hebdomadaire", "", "Die Zeitschrift erscheint wöchentlich."], ["173 Jahr", "das Jahr, -e", "l'an, l'année", "", "im nächsten Jahr / jahrelang"], ["173 Jahr", "Silvester", "la Saint-Sylvestre", "", "das Silvesterfeuerwerk"], ["173 Jahr", "Neujahr", "le jour de l'an", "", "der Neujahrstag"], ["173 Jahr", "der Monat, -e", "le mois", "", "der Monatsanfang / das Monatsende"], ["173 Jahr", "der Januar", "janvier", "", ""], ["173 Jahr", "der Februar", "février", "", ""], ["173 Jahr", "der März", "mars", "", ""], ["173 Jahr", "der April", "avril", "", ""], ["173 Jahr", "der Mai", "mai", "", ""], ["173 Jahr", "der Juni", "juin", "", ""], ["173 Jahr", "der Juli", "juillet", "", ""], ["173 Jahr", "der August", "août", "", ""], ["173 Jahr", "der September", "septembre", "", ""], ["173 Jahr", "der Oktober", "octobre", "", ""], ["173 Jahr", "der November", "novembre", "", ""], ["173 Jahr", "der Dezember", "décembre", "", ""], ["173 Jahr", "der Kalender, -", "le calendrier", "", "einen Kalender kaufen"], ["173 Jahr", "das Datum, Daten", "la date", "", "das Geburtsdatum"], ["173 Jahr", "die Jahreszeit, -en", "la saison", "", "die vier Jahreszeiten"], ["173 Jahr", "der Frühling", "le printemps", "", "der Frühlingsanfang"], ["173 Jahr", "das Frühjahr", "le printemps", "", "die Frühjahrsmode"], ["173 Jahr", "der Sommer", "l'été", "", "der Hochsommer"], ["173 Jahr", "der Herbst", "l'automne", "", "ein kühler Herbsttag"], ["173 Jahr", "der Winter", "l'hiver", "", "der kalte Winter"]];
+const baseDeck = () => VOCAB.map((c, i) => ({ id: 'v' + (i + 1), t: c[0], q: c[1], a: c[2], e: c[3] || '', x: c[4] || '' }));
+const THEMES_ALL = [...new Set(VOCAB.map(c => c[0]))];
+
+const $ = s => document.querySelector(s);
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} }
+};
+let deck = store.get('fc_deck_de1', null) || baseDeck();
+let settings = Object.assign({ autoShuffle: true, dir: 'de', themes: null }, store.get('fc_settings_de1', {}));
+const themesOf = () => [...new Set(deck.map(c => c.t || 'Mes cartes'))];
+const selThemes = () => settings.themes || themesOf();
+const activeDeck = () => { const t = selThemes(); return deck.filter(c => t.includes(c.t || 'Mes cartes')); };
+const saveDeck = () => store.set('fc_deck_de1', deck);
+const saveSettings = () => store.set('fc_settings_de1', settings);
+let S = null, cardMap = new Map(), flipped = false, flipLock = false, busy = false, paused = false, modalOpen = false;
+let uid = Date.now();
+
+function toast(msg) {
+  const t = $('#toast'); t.textContent = msg; t.classList.add('show');
+  clearTimeout(toast._t); toast._t = setTimeout(() => t.classList.remove('show'), 2200);
+}
+function show(name) {
+  document.querySelectorAll('.view').forEach(v => v.classList.toggle('active', v.id === 'view' + name));
+  window.scrollTo(0, 0);
+}
+function confirmDialog(title, text, ok = 'OK') {
+  return new Promise(res => {
+    modalOpen = true;
+    $('#mTitle').textContent = title; $('#mText').textContent = text; $('#mOk').textContent = ok;
+    $('#modal').classList.add('open'); $('#mOk').focus();
+    const done = v => { $('#modal').classList.remove('open'); modalOpen = false;
+      $('#mOk').onclick = $('#mCancel').onclick = null; res(v); };
+    $('#mOk').onclick = () => done(true); $('#mCancel').onclick = () => done(false);
+  });
+}
+
+/* ------------------------------ Accueil ------------------------------ */
+function renderHome() {
+  const act = activeDeck(), sel = selThemes();
+  $('#count').textContent = act.length;
+  const chips = $('#chips'); chips.innerHTML = '';
+  themesOf().forEach(t => {
+    const b = document.createElement('button'); b.className = 'chip'; b.setAttribute('aria-pressed', sel.includes(t));
+    const n = deck.filter(c => (c.t || 'Mes cartes') === t).length;
+    b.textContent = t + ' '; const sm = document.createElement('small'); sm.textContent = '(' + n + ')'; b.appendChild(sm);
+    b.onclick = () => { const cur = selThemes(); settings.themes = cur.includes(t) ? cur.filter(x => x !== t) : cur.concat(t); saveSettings(); renderHome(); };
+    chips.appendChild(b);
+  });
+  $('#dirDe').setAttribute('aria-pressed', settings.dir === 'de'); $('#dirFr').setAttribute('aria-pressed', settings.dir === 'fr');
+  const ul = $('#cardList'); ul.innerHTML = '';
+  if (!act.length) { const li = document.createElement('li'); li.textContent = 'Aucune carte sélectionnée. Choisis au moins un chapitre.'; ul.appendChild(li); }
+  act.forEach(c => {
+    const li = document.createElement('li');
+    const d = document.createElement('div');
+    const q = document.createElement('div'); q.className = 'q'; q.textContent = c.q;
+    const a = document.createElement('div'); a.className = 'a'; a.textContent = c.a;
+    d.append(q, a);
+    const tg = document.createElement('span'); tg.className = 't'; tg.textContent = (c.t || 'Mes cartes').split(' ')[0];
+    const x = document.createElement('button'); x.className = 'x'; x.textContent = '✕'; x.title = 'Supprimer'; x.setAttribute('aria-label', 'Supprimer la carte');
+    x.onclick = () => { deck = deck.filter(k => k.id !== c.id); saveDeck(); renderHome(); };
+    li.append(d, tg, x); ul.appendChild(li);
+  });
+  const on = settings.autoShuffle;
+  $('#autoToggle').setAttribute('aria-checked', on);
+  $('#shuffleDesc').textContent = on
+    ? 'Activé : les cartes sont mélangées au lancement et entre les tours.'
+    : 'Désactivé : l\'ordre initial des cartes est conservé.';
+  $('#startBtn').disabled = act.length === 0;
+}
+$('#autoToggle').onclick = () => { settings.autoShuffle = !settings.autoShuffle; saveSettings(); renderHome(); };
+$('#selAll').onclick = () => { settings.themes = null; saveSettings(); renderHome(); };
+$('#resetDeck').onclick = async () => { if (await confirmDialog('Réinitialiser ?', 'La liste de vocabulaire d\'origine sera restaurée (tes cartes ajoutées seront supprimées).', 'Réinitialiser')) { deck = baseDeck(); settings.themes = null; saveDeck(); saveSettings(); renderHome(); } };
+$('#dirDe').onclick = () => { settings.dir = 'de'; saveSettings(); renderHome(); };
+$('#dirFr').onclick = () => { settings.dir = 'fr'; saveSettings(); renderHome(); };
+$('#addForm').onsubmit = e => {
+  e.preventDefault();
+  const q = $('#fQ').value.trim(), a = $('#fA').value.trim();
+  if (!q || !a) return;
+  deck = deck.concat([{ id: 'u' + (++uid), t: 'Mes cartes', q, a, e: $('#fE').value.trim(), x: $('#fX').value.trim() }]);
+  saveDeck(); e.target.reset(); renderHome(); toast('Carte ajoutée');
+};
+
+/* ------------------------------ Session ------------------------------ */
+function startSession() {
+  const act = activeDeck();
+  if (!act.length) return;
+  cardMap = new Map(act.map(c => [c.id, Object.freeze({ ...c })])); // copie figée : la liste d'origine n'est jamais modifiée
+  S = Engine.createSession(act.map(c => c.id), settings.autoShuffle);
+  paused = false; busy = false; $('#pauseBox').classList.remove('open');
+  show('Session'); renderCard(true);
+}
+function setFlipped(v, instant) {
+  const c = $('#card'); flipped = v;
+  if (instant) { c.style.transition = 'none'; c.classList.toggle('flipped', v); void c.offsetWidth; c.style.transition = ''; }
+  else c.classList.toggle('flipped', v);
+}
+function renderCard(animate) {
+  if (Engine.isRoundOver(S)) return endRound();
+  const c = cardMap.get(S.queue[0]);
+  setFlipped(false, true);
+  const fr = settings.dir === 'fr';
+  $('#qText').textContent = fr ? c.a : c.q; $('#aText').textContent = fr ? c.q : c.a;
+  $('#eText').textContent = c.e; $('#xText').textContent = c.x ? 'Exemple : ' + c.x : '';
+  const slot = $('#slot'); slot.className = 'slot';
+  if (animate) { void slot.offsetWidth; slot.classList.add('enter'); }
+  updateUI();
+}
+function updateUI() {
+  const done = S.presented.length, tot = S.roundTotal, cur = Math.min(done + 1, tot);
+  $('#roundPill').textContent = 'Tour ' + S.round;
+  $('#cardNum').textContent = `Carte ${cur} / ${tot}`;
+  const rem = S.queue.length;
+  $('#remaining').textContent = `${rem} restante${rem > 1 ? 's' : ''} · ${S.mastered.size} maîtrisée${S.mastered.size > 1 ? 's' : ''}`;
+  const pct = tot ? Math.round(100 * done / tot) : 0;
+  $('#barFill').style.width = pct + '%'; $('#bar').setAttribute('aria-valuenow', pct);
+  const canAnswer = flipped && !flipLock && !busy && !paused;
+  $('#answers').classList.toggle('hidden', !flipped);
+  $('#btnNo').disabled = $('#btnYes').disabled = !canAnswer;
+  $('#btnPrev').disabled = !S.history.length || busy;
+  $('#btnNext').disabled = S.queue.length < 2 || busy;
+}
+function flip() {
+  if (!S || paused || flipLock || busy || modalOpen) return;
+  flipLock = true; setFlipped(!flipped); updateUI();
+  setTimeout(() => { flipLock = false; updateUI(); }, 620);
+}
+function answer(known) {
+  if (!S || !flipped || flipLock || busy || paused || modalOpen) return;
+  busy = true;
+  const btn = known ? $('#btnYes') : $('#btnNo');
+  btn.classList.remove('pop'); void btn.offsetWidth; btn.classList.add('pop');
+  $('#card').classList.add(known ? 'flash-yes' : 'flash-no');
+  $('#answers').querySelectorAll('button').forEach(b => b.disabled = true);
+  setTimeout(() => {
+    $('#slot').classList.add(known ? 'leave-yes' : 'leave-no');
+    setTimeout(() => {
+      Engine.answer(S, known); Engine.check(S);
+      $('#card').classList.remove('flash-yes', 'flash-no');
+      busy = false;
+      if (Engine.isRoundOver(S)) endRound(); else renderCard(true);
+    }, 230);
+  }, 180);
+}
+function endRound() {
+  if (Engine.isDone(S)) {
+    const st = Engine.stats(S);
+    $('#fTotal').textContent = st.total; $('#fFirst').textContent = st.firstRoundKnown;
+    $('#fLearned').textContent = st.learned; $('#fPct').textContent = st.firstPct + ' %'; $('#fRounds').textContent = st.rounds;
+    return show('Final');
+  }
+  const miss = S.failed.length, pct = S.roundTotal ? Math.round(100 * S.roundKnown / S.roundTotal) : 0;
+  $('#rKnown').textContent = S.roundKnown; $('#rMissed').textContent = miss; $('#rPct').textContent = pct + ' %';
+  $('#nextRoundBtn').textContent = `Réviser ${miss === 1 ? 'ma carte' : 'mes ' + miss + ' cartes'}`;
+  show('Round');
+}
+$('#nextRoundBtn').onclick = () => {
+  if (Engine.nextRound(S, settings.autoShuffle)) { Engine.check(S); show('Session'); renderCard(true); }
+};
+$('#card').onclick = flip;
+$('#btnNo').onclick = () => answer(false);
+$('#btnYes').onclick = () => answer(true);
+$('#startBtn').onclick = startSession;
+$('#restartBtn').onclick = startSession;
+$('#backBtn').onclick = () => { S = null; renderHome(); show('Home'); };
+
+function prev() {
+  if (!S || busy || paused || modalOpen) return;
+  if (!Engine.undo(S)) return toast('Aucune réponse à annuler dans ce tour');
+  Engine.check(S); renderCard(true); toast('Dernière réponse annulée');
+}
+function next() {
+  if (!S || busy || paused || modalOpen) return;
+  if (!Engine.skip(S)) return toast('Une seule carte restante');
+  renderCard(true); toast('Carte passée : elle reviendra en fin de tour');
+}
+async function shuffleNow() {
+  if (!S || busy || paused || modalOpen) return;
+  if (S.queue.length < 2) return toast(S.queue.length === 1 ? 'Une seule carte restante : rien à mélanger' : 'Aucune carte à mélanger');
+  // Confirmation uniquement si la réponse est affichée (la carte affichée pourrait changer)
+  if (flipped) {
+    const ok = await confirmDialog('Mélanger les cartes restantes ?', 'La carte affichée peut être remplacée par une autre. Ta progression est conservée.', 'Mélanger');
+    if (!ok) return;
+  }
+  if (Engine.manualShuffle(S)) {
+    Engine.check(S); renderCard(false);
+    const slot = $('#slot'); void slot.offsetWidth; slot.classList.add('shake');
+    toast(`${S.queue.length} cartes mélangées · progression conservée`);
+  }
+}
+function setPause(v) {
+  if (!S) return; paused = v;
+  $('#pauseBox').classList.toggle('open', v); $('#slot').style.visibility = v ? 'hidden' : '';
+  $('#btnPause').textContent = v ? '▶ Reprendre' : '⏸ Pause'; updateUI();
+}
+async function quit() {
+  if (!S || modalOpen) return;
+  if (!S.history.length && !S.mastered.size) { S = null; renderHome(); return show('Home'); }
+  const ok = await confirmDialog('Quitter la session ?', 'Ta progression de cette session sera perdue.', 'Quitter');
+  if (ok) { S = null; paused = false; setPause(false); renderHome(); show('Home'); }
+}
+$('#btnPrev').onclick = prev; $('#btnNext').onclick = next; $('#btnShuffle').onclick = shuffleNow;
+$('#btnPause').onclick = () => setPause(!paused); $('#resumeBtn').onclick = () => setPause(false); $('#btnQuit').onclick = quit;
+
+document.addEventListener('keydown', e => {
+  if (!$('#viewSession').classList.contains('active') || modalOpen) return;
+  if (/INPUT|TEXTAREA/.test(document.activeElement.tagName)) return;
+  const k = e.key;
+  if (k === ' ' || k === 'Spacebar') { e.preventDefault(); if (e.repeat) return; flip(); }
+  else if (k === '1') answer(false);
+  else if (k === '2') answer(true);
+  else if (k === 'ArrowLeft') prev();
+  else if (k === 'ArrowRight') next();
+  else if (k === 's' || k === 'S') shuffleNow();
+  else if (k === 'p' || k === 'P') setPause(!paused);
+});
+window.addEventListener('beforeunload', e => { if (S && S.history.length && $('#viewSession').classList.contains('active')) { e.preventDefault(); e.returnValue = ''; } });
+
+renderHome();
+</script>
+</body>
+</html>
